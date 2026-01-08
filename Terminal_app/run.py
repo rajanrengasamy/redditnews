@@ -155,27 +155,27 @@ def run_full_pipeline():
         return False
     logger.info(f"Stage 6 complete: {stage_6_manifest}")
 
-    # Stage 7: Carousel Image Generation
+    # Stage 7: Carousel Image Generation - DISABLED for refinement
+    # Uncomment to re-enable, or run manually with --stage 7
     logger.info("=" * 50)
-    logger.info("STAGE 7: Carousel Image Generation")
+    logger.info("STAGE 7: Carousel Image Generation - SKIPPED")
+    logger.info("(Run separately with: --stage 7 --input output/5_social_drafts.json)")
     logger.info("=" * 50)
-    from stage_7_carousel import run_stage_7
-    # Find the session folder from Stage 6 manifest
-    import json
-    with open(stage_6_manifest, 'r') as f:
-        manifest = json.load(f)
-    if manifest and 'session_image_path' in manifest[0]:
-        # Extract session folder from first item's session_image_path
-        session_dir = os.path.dirname(os.path.dirname(manifest[0]['session_image_path']))
-    else:
-        session_dir = None
-    run_stage_7(stage_5_output, session_dir=session_dir)
-    stage_7_manifest = os.path.join(output_dir, '7_carousel_manifest.json')
-    # Stage 7 is non-critical, so we don't fail if it doesn't produce output
-    if os.path.exists(stage_7_manifest):
-        logger.info(f"Stage 7 complete: {stage_7_manifest}")
-    else:
-        logger.warning("Stage 7 did not produce manifest (check session folder)")
+
+    # from stage_7_carousel import run_stage_7
+    # import json
+    # with open(stage_6_manifest, 'r') as f:
+    #     manifest = json.load(f)
+    # if manifest and 'session_image_path' in manifest[0]:
+    #     session_dir = os.path.dirname(os.path.dirname(manifest[0]['session_image_path']))
+    # else:
+    #     session_dir = None
+    # run_stage_7(stage_5_output, session_dir=session_dir)
+    # stage_7_manifest = os.path.join(output_dir, '7_carousel_manifest.json')
+    # if os.path.exists(stage_7_manifest):
+    #     logger.info(f"Stage 7 complete: {stage_7_manifest}")
+    # else:
+    #     logger.warning("Stage 7 did not produce manifest (check session folder)")
 
     logger.info("=" * 50)
     logger.info("PIPELINE COMPLETE!")

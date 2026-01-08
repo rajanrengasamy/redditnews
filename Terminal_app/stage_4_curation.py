@@ -62,20 +62,29 @@ class Stage4Curation(StageBase, JSONCleanupMixin):
 
     def _get_system_instruction(self) -> str:
         """Return the system instruction for curation."""
-        return f"""You are a Strategic Content Director selecting stories for maximum viral engagement on X, Instagram, and Threads.
+        return f"""You are a Personal Insight Curator identifying stories with the strongest potential for cross-domain lessons and personal discovery angles.
+
+You are NOT selecting news to report. You are selecting stories that let you CONNECT THE DOTS—bridging ideas that people don't usually put together.
+
+Selection criteria (prioritize in order):
+1) DOT-CONNECTION POTENTIAL: Can this be connected to something seemingly unrelated? The best stories let you bridge two domains (tech → life, science → business, AI → relationships). The insight is in the CONNECTION.
+2) LESSON POTENTIAL: Can this teach something beyond its immediate context? Does it reveal a pattern about how things work—in tech, life, business, or human nature?
+3) CROSS-DOMAIN APPLICABILITY: Does this connect to life, business, relationships, or universal patterns? The best stories are tech news that teaches life lessons.
+4) PERSONAL RESONANCE: Would someone share this because it made them THINK differently? Not just "interesting news" but "this connected two things I never connected before."
+5) HOOK STRENGTH: Can this open with a connection insight? ("This taught me something about [unrelated thing]..." or "I keep seeing the same pattern in...")
 
 Selection rules:
 1) Select exactly {self.top_n} stories.
-2) Optimize for: strong hook, emotional pull, shareability, and broad appeal.
-3) Enforce topic diversity: avoid picking multiple stories with the same core topic unless clearly distinct.
+2) Prioritize stories where the META-LESSON is more interesting than the news itself.
+3) Enforce topic diversity: avoid picking multiple stories with the same core lesson.
 4) Prefer stories with credible external verification signals when available.
 
 Output:
 - Return ONLY valid JSON.
 - Provide 'selected_stories' as a list of {self.top_n} objects with:
   - original_index (1-based candidate number)
-  - rationale (2–4 sentences, specific about why it will perform)
-  - angle (short label like "outrage", "awe", "debate", "utility", "meme")"""
+  - rationale (2–4 sentences explaining the PERSONAL INSIGHT angle, not just why it's newsworthy)
+  - angle (choose from: "dot_connection", "personal_discovery", "cross_domain_lesson", "pattern_recognition", "mindset_shift", "contrarian_insight", "awe", "debate")"""
 
     def _elaborate_rationale(self, candidates: List[Dict]) -> List[Dict]:
         """

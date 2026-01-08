@@ -1,0 +1,125 @@
+{
+    "version": "1.0",
+    "description": "Approved accent colors - pick ONE per infographic",
+    "usage_rules": [
+        "Select exactly one accent color per asset",
+        "Use accent for headers, icons, and callouts only",
+        "Body text must remain white",
+        "Never use multiple accent colors in the same asset"
+    ],
+    "palette": {
+        "lime": {
+            "hex": "#a3e635",
+            "rgb": [
+                163,
+                230,
+                53
+            ],
+            "name": "Lime Green",
+            "best_for": [
+                "tech",
+                "innovation",
+                "growth",
+                "success"
+            ]
+        },
+        "cyan": {
+            "hex": "#22d3ee",
+            "rgb": [
+                34,
+                211,
+                238
+            ],
+            "name": "Electric Cyan",
+            "best_for": [
+                "ai",
+                "digital",
+                "futuristic",
+                "data"
+            ]
+        },
+        "coral": {
+            "hex": "#fb7185",
+            "rgb": [
+                251,
+                113,
+                133
+            ],
+            "name": "Coral Pink",
+            "best_for": [
+                "health",
+                "biotech",
+                "human interest",
+                "lifestyle"
+            ]
+        },
+        "amber": {
+            "hex": "#fbbf24",
+            "rgb": [
+                251,
+                191,
+                36
+            ],
+            "name": "Warm Amber",
+            "best_for": [
+                "warning",
+                "controversy",
+                "attention",
+                "urgency"
+            ]
+        },
+        "violet": {
+            "hex": "#a78bfa",
+            "rgb": [
+                167,
+                139,
+                250
+            ],
+            "name": "Soft Violet",
+            "best_for": [
+                "space",
+                "science",
+                "discovery",
+                "creative"
+            ]
+        },
+        "sky": {
+            "hex": "#38bdf8",
+            "rgb": [
+                56,
+                189,
+                248
+            ],
+            "name": "Sky Blue",
+            "best_for": [
+                "education",
+                "trust",
+                "information",
+                "general"
+            ]
+        },
+        "emerald": {
+            "hex": "#34d399",
+            "rgb": [
+                52,
+                211,
+                153
+            ],
+            "name": "Emerald Green",
+            "best_for": [
+                "environment",
+                "sustainability",
+                "nature",
+                "finance"
+            ]
+        }
+    },
+    "theme_mapping": {
+        "tech_ai": "cyan",
+        "biotech": "emerald",
+        "space": "violet",
+        "controversy": "amber",
+        "education": "sky",
+        "default": "cyan"
+    }
+}

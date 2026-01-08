@@ -1,0 +1,103 @@
+{
+    "version": "1.0",
+    "description": "Style variants for different content types",
+    "variants": {
+        "minimal": {
+            "name": "Minimal",
+            "description": "Typography-first design with maximum breathing room",
+            "whitespace_percent": [
+                40,
+                50
+            ],
+            "max_sections": 3,
+            "max_icons": 2,
+            "focus": "typography_first",
+            "prompt_instructions": [
+                "Emphasize large, bold typography as the primary visual element",
+                "Use extensive negative space (40-50% of canvas)",
+                "Maximum 2-3 distinct sections",
+                "1-2 simple line icons only",
+                "Clean, uncluttered aesthetic"
+            ],
+            "best_for": [
+                "breaking news announcements",
+                "simple facts or quotes",
+                "brand statements",
+                "single data points"
+            ]
+        },
+        "data_heavy": {
+            "name": "Data-Heavy",
+            "description": "One hero data visualization with supporting context",
+            "primary_element": "hero_data_viz",
+            "max_data_points": 4,
+            "number_treatment": "big_accent_numbers",
+            "prompt_instructions": [
+                "Feature one prominent data visualization as the hero element",
+                "Maximum 3-4 key data points",
+                "Use large, bold numbers in accent color",
+                "Include simple bar, pie, or line chart representation",
+                "Supporting text should be minimal"
+            ],
+            "best_for": [
+                "statistics and studies",
+                "financial news",
+                "research findings",
+                "comparison metrics"
+            ]
+        },
+        "quote_focused": {
+            "name": "Quote-Focused",
+            "description": "Quote dominates the visual weight",
+            "quote_weight_percent": [
+                50,
+                60
+            ],
+            "quote_marks": "accent_color_optional",
+            "readability": "thumbnail_readable",
+            "prompt_instructions": [
+                "Quote text takes 50-60% of visual weight",
+                "Optional large quotation marks in accent color",
+                "Attribution in smaller text below quote",
+                "Must be readable at 100px thumbnail size",
+                "Minimal supporting elements"
+            ],
+            "best_for": [
+                "notable quotes from leaders",
+                "controversial statements",
+                "policy announcements",
+                "speaker highlights"
+            ]
+        }
+    },
+    "variant_selection_keywords": {
+        "minimal": [
+            "announces",
+            "launches",
+            "reveals",
+            "breaking",
+            "just in",
+            "confirmed"
+        ],
+        "data_heavy": [
+            "study",
+            "research",
+            "percent",
+            "million",
+            "billion",
+            "statistics",
+            "data",
+            "growth",
+            "decline"
+        ],
+        "quote_focused": [
+            "says",
+            "said",
+            "claims",
+            "warns",
+            "stated",
+            "according to",
+            "quote"
+        ]
+    }
+}

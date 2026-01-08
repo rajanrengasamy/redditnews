@@ -1,0 +1,80 @@
+{
+    "version": "1.0",
+    "name": "Nano Banana Pro",
+    "description": "Locked brand template for editorial infographics",
+    "background": {
+        "type": "solid",
+        "color_range": [
+            "#1e1e1e",
+            "#252525"
+        ],
+        "restrictions": [
+            "no_gradients",
+            "no_patterns",
+            "no_textures"
+        ]
+    },
+    "frame": {
+        "type": "rounded_rectangle",
+        "border_width_px": [
+            1,
+            2
+        ],
+        "border_color": "rgba(255, 255, 255, 0.15)",
+        "border_opacity_range": [
+            0.15,
+            0.20
+        ],
+        "border_radius_px": [
+            20,
+            30
+        ]
+    },
+    "typography": {
+        "font_family": [
+            "Inter",
+            "SF Pro",
+            "Outfit"
+        ],
+        "font_type": "geometric_sans",
+        "max_sizes": 3,
+        "title": {
+            "weight": "bold",
+            "position": "centered",
+            "zone": "top_15_25_percent"
+        },
+        "accessibility": {
+            "standard": "WCAG_AA",
+            "min_contrast_ratio": 4.5
+        }
+    },
+    "icons": {
+        "style": "line_art_only",
+        "stroke_width_px": [
+            2,
+            3
+        ],
+        "fill": "none",
+        "color": "accent"
+    },
+    "spacing": {
+        "safe_zone_margin_percent": 8,
+        "negative_space_percent": [
+            30,
+            40
+        ],
+        "title_zone_percent": [
+            15,
+            25
+        ]
+    },
+    "thumbnail_readability": {
+        "min_readable_size_px": 100
+    },
+    "composition": {
+        "aspect_ratio": "4:5",
+        "width_px": 1080,
+        "height_px": 1350,
+        "format": "portrait"
+    }
+}

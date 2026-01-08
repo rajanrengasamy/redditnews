@@ -1,0 +1,73 @@
+{
+    "version": "1.0",
+    "description": "Negative prompts and forbidden elements for brand compliance",
+    "negative_prompts": {
+        "description": "Elements that MUST be explicitly avoided in all generations",
+        "always_include_in_prompt": true,
+        "backgrounds": [
+            "light backgrounds",
+            "white backgrounds",
+            "gradients",
+            "pattern backgrounds",
+            "textured backgrounds",
+            "busy backgrounds"
+        ],
+        "icons_and_graphics": [
+            "filled icons",
+            "solid icons",
+            "cartoon icons",
+            "emoji-style icons",
+            "3D icons",
+            "glossy icons"
+        ],
+        "imagery": [
+            "stock photos",
+            "photographs",
+            "realistic images",
+            "photorealistic elements",
+            "real human faces",
+            "celebrity likenesses"
+        ],
+        "layout": [
+            "clutter",
+            "cluttered layout",
+            "too many elements",
+            "more than 5 major visual elements",
+            "crowded composition",
+            "busy design"
+        ],
+        "text": [
+            "tiny text",
+            "illegible text",
+            "more than 3 font sizes",
+            "decorative fonts",
+            "script fonts"
+        ],
+        "branding": [
+            "logos",
+            "watermarks",
+            "brand marks",
+            "fake brand logos",
+            "company logos"
+        ],
+        "effects": [
+            "lens flares",
+            "drop shadows",
+            "bevels",
+            "neon glow",
+            "glitter effects"
+        ]
+    },
+    "max_elements_rule": {
+        "description": "Never include more than 5 major visual elements in any asset",
+        "max_major_elements": 5,
+        "element_types": [
+            "icons",
+            "charts",
+            "images",
+            "text_blocks",
+            "shapes"
+        ]
+    },
+    "prompt_suffix": "AVOID: light backgrounds, gradients, filled icons, stock photos, clutter, tiny text, logos, watermarks, more than 5 major visual elements, cartoon characters, photorealistic images."
+}

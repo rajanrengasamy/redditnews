@@ -1,0 +1,51 @@
+2026-01-07 15:46:33,565 - RedditNewsPipeline - INFO - Loaded environment from /Users/rajan/Library/CloudStorage/Dropbox/Projects/antiGravity-projects/redditnews/Terminal_app/projects.env
+2026-01-07 15:46:33,568 - RedditNewsPipeline - INFO - Environment variables loaded
+2026-01-07 15:46:33,568 - RedditNewsPipeline - INFO - Starting Pipeline Stage: 6
+/Users/rajan/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: 
+    You are using a Python version 3.9 past its end of life. Google will update
+    google-auth with critical bug fixes on a best-effort basis, but not
+    with any other fixes or features. Please upgrade your Python version,
+    and then update google-auth.
+    
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/rajan/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/rajan/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: 
+    You are using a Python version 3.9 past its end of life. Google will update
+    google-auth with critical bug fixes on a best-effort basis, but not
+    with any other fixes or features. Please upgrade your Python version,
+    and then update google-auth.
+    
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+2026-01-07 15:46:33,849 - stage_6_visuals - INFO - Starting Stage 6: Visual Asset Generation + Markdown Export
+2026-01-07 15:46:33,850 - stage_6_visuals - INFO - Loaded 5 items for visual generation.
+2026-01-07 15:46:33,850 - stage_6_visuals - INFO - Session folder: ../output/session_20260107_154633
+2026-01-07 15:46:33,850 - stage_6_visuals - INFO - Created Markdown: 01_t3_1q4zwkl_Boston_Dynamics_Google_DeepMind_Form_New_AI_Partne.md
+2026-01-07 15:46:33,850 - stage_6_visuals - INFO - Generating image for t3_1q4zwkl...
+2026-01-07 15:46:33,866 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 15:46:56,717 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-07 15:46:57,482 - stage_6_visuals - INFO - Saved image to ../output/session_20260107_154633/images/t3_1q4zwkl_hero.png
+2026-01-07 15:46:59,489 - stage_6_visuals - INFO - Created Markdown: 02_t3_1q43exc_A_New_Startup_Wants_to_Edit_Human_Embryos_Seven_ye.md
+2026-01-07 15:46:59,489 - stage_6_visuals - INFO - Generating image for t3_1q43exc...
+2026-01-07 15:46:59,503 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 15:47:18,764 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-07 15:47:19,552 - stage_6_visuals - INFO - Saved image to ../output/session_20260107_154633/images/t3_1q43exc_hero.png
+2026-01-07 15:47:21,560 - stage_6_visuals - INFO - Created Markdown: 03_t3_1q56esw_Is_this_what_youre_replacing_your_therapist_with.md
+2026-01-07 15:47:21,560 - stage_6_visuals - INFO - Generating image for t3_1q56esw...
+2026-01-07 15:47:21,575 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 15:47:44,590 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-07 15:47:45,387 - stage_6_visuals - INFO - Saved image to ../output/session_20260107_154633/images/t3_1q56esw_hero.png
+2026-01-07 15:47:47,393 - stage_6_visuals - INFO - Created Markdown: 04_t3_1q4t8b5_Harvard_just_proved_AI_tutors_beat_classrooms_Now.md
+2026-01-07 15:47:47,394 - stage_6_visuals - INFO - Generating image for t3_1q4t8b5...
+2026-01-07 15:47:47,407 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 15:48:08,450 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-07 15:48:09,230 - stage_6_visuals - INFO - Saved image to ../output/session_20260107_154633/images/t3_1q4t8b5_hero.png
+2026-01-07 15:48:11,238 - stage_6_visuals - INFO - Created Markdown: 05_t3_1q3zs1b_NASA_chief_praises_teen_Matteo_Paz_for_using_AI_to.md
+2026-01-07 15:48:11,238 - stage_6_visuals - INFO - Generating image for t3_1q3zs1b...
+2026-01-07 15:48:11,249 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 15:48:36,137 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-07 15:48:36,890 - stage_6_visuals - INFO - Saved image to ../output/session_20260107_154633/images/t3_1q3zs1b_hero.png
+2026-01-07 15:48:38,896 - stage_6_visuals - INFO - Stage 6 Complete.
+2026-01-07 15:48:38,896 - stage_6_visuals - INFO - Session folder: ../output/session_20260107_154633
+2026-01-07 15:48:38,896 - stage_6_visuals - INFO - Markdown files: 5
+2026-01-07 15:48:38,896 - stage_6_visuals - INFO - Manifest: ../output/6_manifest.json

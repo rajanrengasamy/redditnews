@@ -1,0 +1,13 @@
+.tmp/
+*.env
+.ebv
+credentials.json
+token.json
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Generated output
+output/

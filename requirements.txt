@@ -1,0 +1,11 @@
+feedparser
+python-dotenv
+requests
+beautifulsoup4
+google-generativeai
+pytrends
+openai
+anthropic
+playwright
+Pillow
+

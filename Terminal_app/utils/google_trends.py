@@ -12,23 +12,23 @@ from typing import Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
-# Lazy import to avoid loading pytrends if not needed
-_pytrends_available = None
-_TrendReq = None
+# Lazy import to avoid loading trendspy if not needed
+_trendspy_available = None
+_Trends = None
 
 
-def _ensure_pytrends():
-    """Lazy load pytrends to avoid import errors if not installed."""
-    global _pytrends_available, _TrendReq
-    if _pytrends_available is None:
+def _ensure_trendspy():
+    """Lazy load trendspy to avoid import errors if not installed."""
+    global _trendspy_available, _Trends
+    if _trendspy_available is None:
         try:
-            from pytrends.request import TrendReq
-            _TrendReq = TrendReq
-            _pytrends_available = True
+            from trendspy import Trends
+            _Trends = Trends
+            _trendspy_available = True
         except ImportError:
-            _pytrends_available = False
-            logger.warning("pytrends not installed. Google Trends scoring disabled.")
-    return _pytrends_available
+            _trendspy_available = False
+            logger.warning("trendspy not installed. Google Trends scoring disabled.")
+    return _trendspy_available
 
 
 def extract_keywords(title: str, max_keywords: int = 3) -> List[str]:
@@ -101,14 +101,14 @@ def get_trends_score(
     timeout: float = 10.0
 ) -> Dict:
     """
-    Query Google Trends for keyword interest.
-    
+    Query Google Trends for keyword interest using TrendsPy.
+
     Args:
         keywords: List of keywords to query (max 5 per API rule)
         timeframe: Trends timeframe (default: last 7 days)
         geo: Geographic region (default: US)
-        timeout: Request timeout in seconds
-        
+        timeout: Request timeout in seconds (unused, kept for API compat)
+
     Returns:
         Dict with:
             - google_trends_score: Normalized 0-100 score (max interest across keywords)
@@ -122,70 +122,56 @@ def get_trends_score(
         'trends_available': False,
         'trends_error': None
     }
-    
+
     if not keywords:
         result['trends_error'] = 'No keywords provided'
         return result
-    
-    if not _ensure_pytrends():
-        result['trends_error'] = 'pytrends not available'
+
+    if not _ensure_trendspy():
+        result['trends_error'] = 'trendspy not available'
         return result
-    
+
     # Limit to 5 keywords (API limit)
     keywords = keywords[:5]
-    
+
     try:
-        # Initialize pytrends with timeout
-        pytrends = _TrendReq(
-            hl='en-US',
-            tz=360,
-            timeout=(timeout, timeout),
-            retries=2,
-            backoff_factor=0.5
-        )
-        
-        # Build payload
-        pytrends.build_payload(
-            keywords,
-            cat=0,
-            timeframe=timeframe,
-            geo=geo,
-            gprop=''
-        )
-        
+        # Initialize trendspy
+        tr = _Trends()
+
         # Get interest over time
-        interest_df = pytrends.interest_over_time()
-        
-        if interest_df.empty:
+        # TrendsPy uses different timeframe format, map common ones
+        interest_df = tr.interest_over_time(keywords, timeframe=timeframe, geo=geo)
+
+        if interest_df is None or interest_df.empty:
             result['trends_error'] = 'No trends data returned'
             return result
-        
+
         # Calculate scores
         trends_data = {}
         max_score = 0
-        
+
         for keyword in keywords:
             if keyword in interest_df.columns:
                 values = interest_df[keyword].values
                 avg_interest = float(values.mean())
                 max_interest = float(values.max())
                 recent_interest = float(values[-1]) if len(values) > 0 else 0
-                
+
                 trends_data[keyword] = {
                     'average': round(avg_interest, 1),
                     'max': round(max_interest, 1),
                     'recent': round(recent_interest, 1)
                 }
-                
+
                 # Use recent interest as primary signal
                 max_score = max(max_score, recent_interest)
-        
+
         result['google_trends_score'] = round(max_score, 1)
         result['trends_data'] = trends_data
         result['trends_available'] = True
-        
+
         return result
-        
+
     except Exception as e:
         error_msg = str(e)
         # Check for rate limiting
@@ -195,7 +181,7 @@ def get_trends_score(
             result['trends_error'] = 'Request timed out'
         else:
             result['trends_error'] = f'Trends API error: {error_msg[:100]}'
-        
+
         logger.warning(f"Google Trends query failed: {result['trends_error']}")
         return result
 
